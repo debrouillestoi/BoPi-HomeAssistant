@@ -1,0 +1,95 @@
+# ATTENTION, POUR VOIR LES CHANGEMENTS IL FAUDRA VERIFIER LA CONFIGURATION PUIS REDEMARRER HA. 
+# ATTENTION, IL FAUT LIRE LA LIGNE PRECEDENTE!!!!!!!
+
+# Si vous avez dejà une section REST dans le fichier configuration.yaml, pas la peine d'en faire une deuxième, vous pouvez sauter la ligne "rest:"
+rest:
+  # Commencez ici si vous avez déjà une section REST dans votre fichier configuration.yaml. 
+  # Cette section permet de récupérer les valeurs des Capteurs et va créer des entités que vous pourrez utiliser dans HA
+  - authentication: basic
+    username: "admin"
+    password: "password"
+    scan_interval: 60
+    resource: http://ADRESSE_IP_DE_VOTRE_BOPI:80/allsensors
+    method: GET
+    sensor:
+      - name: "BoPi Air Temperature (legacy)"
+        value_template: "{{ (value_json|selectattr('type','eq','airtemp')|first)['value'] }}"
+        unit_of_measurement: "°C"
+        unique_id: bopi_airtemp
+      - name: "BoPi Water Temperature (legacy)"
+        value_template: "{{ (value_json|selectattr('type','eq','watertemp')|first)['value'] }}"
+        unit_of_measurement: "°C"
+        unique_id: bopi_watertemp
+      - name: "BoPi Temp 1"
+        value_template: "{{ (value_json|selectattr('type','eq','temp1')|first)['value'] }}"
+        unit_of_measurement: "°C"
+        unique_id: bopi_temp1
+      - name: "BoPi Temp 2"
+        value_template: "{{ (value_json|selectattr('type','eq','temp1')|first)['value'] }}"
+        unit_of_measurement: "°C"
+        unique_id: bopi_temp2
+      - name: "BoPi Box Temperature"
+        value_template: "{{ (value_json|selectattr('type','eq','boxtemp')|first)['value'] }}"
+        unit_of_measurement: "°C"
+        unique_id: bopi_boxtemp
+      - name: "BoPi Box Humidity"
+        value_template: "{{ (value_json|selectattr('type','eq','boxhumidity')|first)['value'] }}"
+        unit_of_measurement: "%"
+        unique_id: bopi_boxhumidity
+      - name: "BoPi pH Value"
+        value_template: "{{ (value_json|selectattr('type','eq','phvalue')|first)['value'] }}"
+        unique_id: bopi_phvalue
+      - name: "BoPi Redox Value"
+        value_template: "{{ (value_json|selectattr('type','eq','redoxvalue')|first)['value'] }}"
+        unit_of_measurement: "mV"
+        unique_id: bopi_redoxvalue  
+      - name: "BoPi Pool Pump Status"
+        value_template: "{{ (value_json|selectattr('type','eq','poolPump')|first)['status'] }}"
+        unique_id: bopi_poolpump_status
+      - name: "BoPi Pool Pump Override"
+        value_template: "{{ (value_json|selectattr('type','eq','poolPump')|first)['override'] }}"
+        unique_id: bopi_poolpump_override
+      - name: "BoPi Pool Pump Timeleft"
+        value_template: "{{ (value_json|selectattr('type','eq','poolPump')|first)['timeleft'] }}"
+        unique_id: bopi_poolpump_timeleft
+        unit_of_measurement: "s"
+      - name: "BoPi Pool Lights Status"
+        value_template: "{{ (value_json|selectattr('type','eq','poolLights')|first)['status'] }}"
+        unique_id: bopi_poollights_status
+      - name: "BoPi Pool Lights Timeleft"
+        value_template: "{{ (value_json|selectattr('type','eq','poolLights')|first)['timeleft'] }}"
+        unique_id: bopi_poollights_timeleft
+        unit_of_measurement: "s"
+      # Fin de la récupération des valeurs de BoPi qui doit être dans la section REST. 
+
+# Si vous avez déjà une section REST_COMMAND dans votre fichier configuration.yaml, pas la peine d'en faire une nouvelle, 
+# vous pouvez sauter la ligne "rest_command:" et ajouter les lignes suivantes dans la section existante.
+rest_command:
+  # Début de la section des commandes pour contrôler BoPi. Avec les commandes crées ci-dessous, vous pouvez déclencher BoPi depuis HA.
+  bopi_pump_on:
+    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poolpump
+    method: POST
+    content_type:  'application/json; charset=utf-8'
+    payload: '{"overrideto":1, "deadline":3600}'
+  bopi_pump_off:
+    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poolpump
+    method: POST
+    content_type:  'application/json; charset=utf-8'
+    payload: '{"overrideto":2, "deadline":3600}'
+  bopi_pump_reset_override:
+    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poolpump
+    method: POST
+    content_type:  'application/json; charset=utf-8'
+    payload: '{"overrideto":0, "deadline":0}'
+  bopi_lights_on:
+    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poollights
+    method: POST
+    content_type:  'application/json; charset=utf-8'
+    payload: '{"newstatus":1, "deadline":3600}'
+  bopi_lights_off:
+    url: http://ADRESSE_IP_DE_VOTRE_BOPI:80/poollights
+    method: POST
+    content_type:  'application/json; charset=utf-8'
+    payload: '{"newstatus":0, "deadline":0}'
+  # Fin de la section des commandes BoPi.
+  
