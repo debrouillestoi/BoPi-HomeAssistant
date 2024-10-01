@@ -4,6 +4,8 @@ Vous trouverez dans ce GitHub les informations pour ajouter BoPi dans Home Assis
 
 Pour vous faciliter l'installation de BoPi dans Home Assistant, commencez par connecter BoPi au réseau Wifi et récupérez l'adresse IP de celui-ci en bas du tableau de bord dans l'app :
 
+
+
 Je vous recommande ensuite d'installer "File Editor" dans Home Assistant pour vous faciliter la modification des fichiers de configuration. 
 <img width="1512" alt="BoPi - HA - Configuration" src="https://github.com/user-attachments/assets/e9009115-d4db-44aa-ac02-ece0f2682f7e">
 
@@ -28,4 +30,10 @@ Et en cliquant sur l'une des températures (par exemple), vous pourrez voir la v
 Si cela fonctionne, vous pouvez maintenant ajouter les scripts au fichier scripts.yaml puis redémarrer HA pour prendre en compte les changements. 
 
 <img width="1512" alt="BoPi - HA - Scripts" src="https://github.com/user-attachments/assets/19d01e31-9e03-4d29-9cba-87081f9ae1f4">
+
+Maintenant nous allons ajouter un tableau de bord pour BoPi. Commencez par créer un nouveau tableau de bord vierge. 
+<img width="529" alt="BoPi - HA - Ajouter un TDB 1" src="https://github.com/user-attachments/assets/4dfaf7e1-58e9-4136-9585-d284e6a58472"><img width="461" alt="BoPi - HA - Ajouter un TDB 2" src="https://github.com/user-attachments/assets/3184ddac-9fb4-4c90-9326-1ddd1efe00dc">
+
+
+
 
