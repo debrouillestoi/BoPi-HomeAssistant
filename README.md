@@ -1,7 +1,7 @@
 # BoPi-HomeAssistant
 Vous trouverez dans ce GitHub les informations pour ajouter BoPi dans Home Assistant et pouvoir ainsi contrôler votre piscine comme vous le souhaitez sans avoir besoin de BoPi Cloud et même créer vos propres automatisations selon vos besoins (utilisation de surplus solaire pour la pompe de filtration, thermorégulation personnalisée, mode hors gel personnalisé, ....). 
 
-Pour que cela fonctionne, il fous faut un BoPi que vous pouvez trouver ici : https://meetbopi.com/fr/
+Pour que cela fonctionne, il vous faut un BoPi que vous pouvez trouver ici : https://meetbopi.com/fr/
 <br><br>
 <img width="1512" alt="BoPi - HA - TDB BoPi" src="https://github.com/user-attachments/assets/c19474d1-7674-400b-a183-cc03b6d1d36a">
 <br><br>
@@ -15,13 +15,13 @@ Je vous recommande ensuite d'installer "File Editor" dans Home Assistant pour vo
 <img width="1512" alt="BoPi - HA - Configuration" src="https://github.com/user-attachments/assets/e9009115-d4db-44aa-ac02-ece0f2682f7e">
 <br><br>
 Dans le dossier correspondant à votre modèle de BoPi, vous trouverez 3 fichiers : 
-  - configuration.yaml : Contiens les appels et commandes Rest pour obtenir les infos et donner des ordres à BoPi.
-  - scripts.yaml : Contiens des scripts utilisés dans le tableau de Bord par défaut pour contrôler BoPi.
-  - tableaudebord.yaml : Contiens le fichier de configuration d'un tableau de bord vierge destiné à BoPi.
+  - configuration.yaml : Contient les appels et commandes Rest pour obtenir les infos et donner des ordres à BoPi.
+  - scripts.yaml : Contient des scripts utilisés dans le tableau de Bord par défaut pour contrôler BoPi.
+  - tableaudebord.yaml : Contient le fichier de configuration d'un tableau de bord vierge destiné à BoPi.
 
 Pour faire simple, commencez par ajouter le contenu au fichier configuration.yaml, ensuite il faudra redémarrer HA pour que les changements soient pris en compte. 
 
-<b>PENSEZ A CHANGER L'ADRESSE IP DE BOPI AVANT DE REDEMARRER HA!</b>
+<b>PENSEZ A CHANGER L'ADRESSE IP DE BOPI AVANT DE REDEMARRER HA !</b>
 <br><br>
 <img width="1512" alt="BoPi - HA - Redemarrage" src="https://github.com/user-attachments/assets/f3f6e864-4bbd-4206-9cd8-15a1817d06a8">
 <br><br>
