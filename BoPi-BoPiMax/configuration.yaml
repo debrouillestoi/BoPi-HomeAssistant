@@ -13,23 +13,23 @@ rest:
     method: GET
     sensor:
       - name: "BoPi Air Temperature (legacy)"
-        value_template: "{{ (value_json|selectattr('type','eq','airtemp')|first)['value'] }}"
+        value_template: "{{ (value_json|selectattr('type','eq','airtemp')|first)['value'] | round(2) }}"
         unit_of_measurement: "°C"
         unique_id: bopi_airtemp
       - name: "BoPi Water Temperature (legacy)"
-        value_template: "{{ (value_json|selectattr('type','eq','watertemp')|first)['value'] }}"
+        value_template: "{{ (value_json|selectattr('type','eq','watertemp')|first)['value'] | round(2) }}"
         unit_of_measurement: "°C"
         unique_id: bopi_watertemp
       - name: "BoPi Temp 1"
-        value_template: "{{ (value_json|selectattr('type','eq','temp1')|first)['value'] }}"
+        value_template: "{{ (value_json|selectattr('type','eq','temp1')|first)['value'] | round(2) }}"
         unit_of_measurement: "°C"
         unique_id: bopi_temp1
       - name: "BoPi Temp 2"
-        value_template: "{{ (value_json|selectattr('type','eq','temp1')|first)['value'] }}"
+        value_template: "{{ (value_json|selectattr('type','eq','temp2')|first)['value'] | round(2) }}"
         unit_of_measurement: "°C"
         unique_id: bopi_temp2
       - name: "BoPi Box Temperature"
-        value_template: "{{ (value_json|selectattr('type','eq','boxtemp')|first)['value'] }}"
+        value_template: "{{ (value_json|selectattr('type','eq','boxtemp')|first)['value'] | round(2) }}"
         unit_of_measurement: "°C"
         unique_id: bopi_boxtemp
       - name: "BoPi Box Humidity"
@@ -37,7 +37,7 @@ rest:
         unit_of_measurement: "%"
         unique_id: bopi_boxhumidity
       - name: "BoPi pH Value"
-        value_template: "{{ (value_json|selectattr('type','eq','phvalue')|first)['value'] }}"
+        value_template: "{{ (value_json|selectattr('type','eq','phvalue')|first)['value'] | round(2) }}"
         unique_id: bopi_phvalue
       - name: "BoPi Redox Value"
         value_template: "{{ (value_json|selectattr('type','eq','redoxvalue')|first)['value'] }}"
