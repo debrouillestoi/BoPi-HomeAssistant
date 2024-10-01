@@ -1,9 +1,6 @@
 # BoPi-HomeAssistant
 Vous trouverez dans ce GitHub les informations pour ajouter BoPi dans Home Assistant et pouvoir ainsi contrôler votre piscine comme vous le souhaitez sans avoir besoin de BoPi Cloud et même créer vos propres automatisations selon vos besoins (utilisation de surplus solaire pour la pompe de filtration, thermorégulation personnalisée, mode hors gel personnalisé, ....). 
 
-Version de BoPi utilisée dans cette documentation : 1.9.6 
-<i>(ce github évoluera au fil des mises à jour de BoPi OS mais le mode d'installation restera le même)</i>
-
 Pour que cela fonctionne, il fous faut un BoPi que vous pouvez trouver ici : https://meetbopi.com/fr/
 <br><br>
 <img width="1512" alt="BoPi - HA - TDB BoPi" src="https://github.com/user-attachments/assets/c19474d1-7674-400b-a183-cc03b6d1d36a">
@@ -57,6 +54,10 @@ Enregistrez et vous avez maintenant BoPi dans Home Assistant. Selon votre modèl
 <img width="50%" alt="BoPi - HA - TDB BoPi" src="https://github.com/user-attachments/assets/db7ad708-c23e-49df-8b94-3907c7955e98"><img width="50%" alt="BoPi - HA - TDB BoPi Basic" src="https://github.com/user-attachments/assets/892b73b5-f33a-4a69-90b3-b1204c6efbc6">
 <br><br>
 Si vous avez plus de questions au sujet de BoPi, n'hésitez pas via le site https://meetbopi.com/fr/
+
+Version de BoPi utilisée dans cette documentation : 1.9.6 <br>
+<i>(ce github évoluera au fil des mises à jour de BoPi OS mais le mode d'installation restera le même)</i>
+
 
 
 
