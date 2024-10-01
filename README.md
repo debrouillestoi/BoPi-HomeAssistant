@@ -56,7 +56,7 @@ Enregistrez et vous avez maintenant BoPi dans Home Assistant. Selon votre modèl
 Si vous avez plus de questions au sujet de BoPi, n'hésitez pas via le site https://meetbopi.com/fr/
 
 Version de BoPi utilisée dans cette documentation : 1.9.6 <br>
-<i>(ce github évoluera au fil des mises à jour de BoPi OS mais le mode d'installation restera le même)</i>
+<i>(ce github évoluera au fil des mises à jour de BoPi OS mais le mode d'installation restera le même).</i>
 
 
 
