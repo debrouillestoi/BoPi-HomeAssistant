@@ -1,6 +1,8 @@
 # BoPi-HomeAssistant
 Vous trouverez dans ce GitHub les informations pour ajouter BoPi dans Home Assistant et pouvoir ainsi contrôler votre piscine comme vous le souhaitez sans avoir besoin de BoPi Cloud et même créer vos propres automatisations selon vos besoins (utilisation de surplus solaire pour la pompe de filtration, thermorégulation personnalisée, mode hors gel personnalisé, ....). 
 
+Pour que cela fonctionne, il fous faut un BoPi que vous pouvez trouver ici : https://meetbopi.com/fr/
+
 <img width="1512" alt="BoPi - HA - TDB BoPi" src="https://github.com/user-attachments/assets/c19474d1-7674-400b-a183-cc03b6d1d36a">
 
 Pour vous faciliter l'installation de BoPi dans Home Assistant, commencez par connecter BoPi au réseau Wifi et récupérez l'adresse IP de celui-ci en bas du tableau de bord dans l'app :
@@ -38,6 +40,19 @@ Maintenant nous allons ajouter un tableau de bord pour BoPi. Commencez par crée
 
 <img width="50%" alt="BoPi - HA - Ajouter un TDB 1" src="https://github.com/user-attachments/assets/4dfaf7e1-58e9-4136-9585-d284e6a58472"><img width="50%" alt="BoPi - HA - Ajouter un TDB 2" src="https://github.com/user-attachments/assets/3184ddac-9fb4-4c90-9326-1ddd1efe00dc">
 
+Ensuite rendez vous dans le nouveau tableau de bord et editez le fichier de configuration.
+
+<img width="323" alt="BoPI - HA - Editer TDB" src="https://github.com/user-attachments/assets/21d91dd2-0a01-46ca-83a2-cd5c97d0346b">
+
+Copiez le contenu du fichier TableauDeBord dans le dossier correspondant à votre modèle dans la configuration du tableau de bord Home Assistant. 
+
+<img width="1512" alt="BoPi - HA - editer TDB 2" src="https://github.com/user-attachments/assets/a87b19f7-691a-43c6-8bab-4165b4f0e332">
+
+Enregistrez et vous avez maintenant BoPi dans Home Assistant. Selon votre modèle, cela ressemblera à l'un des deux écrans ci-dessous (BoPi et BoPi Max à gauche et BoPi Basic à droite).
+
+<img width="50%" alt="BoPi - HA - TDB BoPi" src="https://github.com/user-attachments/assets/db7ad708-c23e-49df-8b94-3907c7955e98"><img width="50%" alt="BoPi - HA - TDB BoPi Basic" src="https://github.com/user-attachments/assets/892b73b5-f33a-4a69-90b3-b1204c6efbc6">
+
+Si vous avez plus de questions au sujet de BoPi, n'hésitez pas via le site https://meetbopi.com/fr/
 
 
 
