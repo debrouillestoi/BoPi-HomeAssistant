@@ -1,5 +1,8 @@
+# ATTENTION, Ceci est pour un tableau de bord VIERGE. Vous pourrez ensuite déplacer les élements dans un autre tableau de bord.
+# ATTENTION, Ceci est une base pour votre intégration de BoPi dans Home Assistant pour contrôler votre piscine. 
+# Une fois le tableau de bord vierge crée, ouvrez "l'éditeur de configuration" du tableau de Bord et ajoutez y les lignes ci-dessous. 
+views:
   - title: BoPi Basic
-    path: bopi-basic
     cards:
       - square: false
         type: grid
