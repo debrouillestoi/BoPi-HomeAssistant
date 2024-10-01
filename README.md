@@ -3,9 +3,9 @@ Vous trouverez dans ce GitHub les informations pour ajouter BoPi dans Home Assis
 
 Pour que cela fonctionne, il fous faut un BoPi que vous pouvez trouver ici : https://meetbopi.com/fr/
 
-
+<br><br>
 <img width="1512" alt="BoPi - HA - TDB BoPi" src="https://github.com/user-attachments/assets/c19474d1-7674-400b-a183-cc03b6d1d36a">
-
+<br><br>
 
 Pour vous faciliter l'installation de BoPi dans Home Assistant, commencez par connecter BoPi au réseau Wifi et récupérez l'adresse IP de celui-ci en bas du tableau de bord dans l'app :
 
