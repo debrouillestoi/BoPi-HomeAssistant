@@ -7,6 +7,8 @@ Pour que cela fonctionne, il fous faut un BoPi que vous pouvez trouver ici : htt
 
 Pour vous faciliter l'installation de BoPi dans Home Assistant, commencez par connecter BoPi au réseau Wifi et récupérez l'adresse IP de celui-ci en bas du tableau de bord dans l'app :
 
+![BoPi - HA - Reglages App](https://github.com/user-attachments/assets/dabff5f0-27c9-4751-bf1a-9a4ae82c67a8)![BoPi - HA - IP dans App](https://github.com/user-attachments/assets/18ec3d3e-0935-48a9-8bd2-4b00f8d9e64f)
+
 
 
 Je vous recommande ensuite d'installer "File Editor" dans Home Assistant pour vous faciliter la modification des fichiers de configuration. 
