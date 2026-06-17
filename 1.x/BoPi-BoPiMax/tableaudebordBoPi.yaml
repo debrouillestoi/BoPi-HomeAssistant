@@ -1,0 +1,272 @@
+# ATTENTION, Ceci est pour un tableau de bord VIERGE. Vous pourrez ensuite déplacer les élements dans un autre tableau de bord.
+# ATTENTION, Ceci est une base pour votre intégration de BoPi dans Home Assistant pour contrôler votre piscine. 
+# Une fois le tableau de bord vierge crée, ouvrez "l'éditeur de configuration" du tableau de Bord et ajoutez y les lignes ci-dessous. 
+views:
+  - title: BoPi
+    cards:
+      - square: false
+        type: grid
+        cards:
+          - graph: line
+            type: sensor
+            entity: sensor.bopi_temp_1
+            detail: 1
+            name: Temp 1
+            icon: mdi:pool-thermometer
+          - graph: line
+            type: sensor
+            entity: sensor.bopi_temp_2
+            detail: 1
+            name: Temp 2
+            icon: mdi:pool-thermometer
+          - type: gauge
+            entity: sensor.bopi_ph_value
+            name: pH
+            min: 0
+            max: 14
+          - type: gauge
+            entity: sensor.bopi_redox_value
+            name: Redox
+            min: 0
+            max: 1500
+          - graph: line
+            type: sensor
+            entity: sensor.bopi_box_temperature
+            detail: 1
+            name: Box Temp
+            icon: mdi:sun-thermometer
+          - graph: line
+            type: sensor
+            entity: sensor.bopi_box_humidity
+            detail: 1
+            name: Box Humidity
+            icon: mdi:water-percent
+        title: Valeurs BoPi
+        columns: 2
+      - type: horizontal-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_pump_status
+                state: 'True'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity: sensor.bopi_pool_pump_override
+                    state: '0'
+            card:
+              type: tile
+              name: AUTO
+              color: green
+              entity: sensor.bopi_pool_pump_status
+              hide_state: true
+              icon: mdi:pump
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_override_reset_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_pump_status
+                state: 'False'
+              - condition: and
+                conditions:
+                  - condition: state
+                    entity: sensor.bopi_pool_pump_override
+                    state: '0'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_pump_status
+              name: AUTO
+              icon: mdi:pump-off
+              color: red
+              hide_state: true
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_override_reset_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_pump_override
+                state_not: '0'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_pump_status
+              icon: mdi:pump
+              name: AUTO
+              color: disabled
+              hide_state: true
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_override_reset_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_pump_override
+                state: '1'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_pump_status
+              name: ALLUME
+              color: green
+              hide_state: true
+              vertical: true
+              icon: mdi:pump
+              tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_on_script
+                target: {}
+              icon_tap_action:
+                action: none
+          - type: conditional
+            conditions:
+              - condition: perform-action
+                entity: sensor.bopi_pool_pump_override
+                state_not: '1'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_pump_status
+              name: ALLUMER
+              color: disabled
+              hide_state: true
+              vertical: true
+              icon: mdi:pump
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_on_script
+                target: {}
+              show_entity_picture: false
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_pump_override
+                state: '2'
+            card:
+              type: tile
+              name: ARRET
+              color: red
+              hide_state: true
+              vertical: true
+              icon: mdi:pump-off
+              entity: sensor.bopi_pool_pump_status
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_off_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_pump_override
+                state_not: '2'
+            card:
+              type: tile
+              name: ARRET
+              color: disabled
+              hide_state: true
+              vertical: true
+              icon: mdi:pump-off
+              tap_action:
+                action: none
+              entity: sensor.bopi_pool_pump_status
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_pump_off_script
+                target: {}
+        title: Pompe
+      - type: horizontal-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_lights_status
+                state: 'False'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_lights_status
+              name: ALLUMER
+              icon: mdi:spotlight
+              color: disabled
+              hide_state: true
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_lights_on_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_lights_status
+                state: 'True'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_lights_status
+              name: ALLUME
+              icon: mdi:spotlight
+              color: green
+              hide_state: true
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_lights_on_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_lights_status
+                state: 'False'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_lights_status
+              name: ETEINT
+              icon: mdi:spotlight
+              color: red
+              hide_state: true
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_lights_off_script
+                target: {}
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.bopi_pool_lights_status
+                state: 'True'
+            card:
+              type: tile
+              entity: sensor.bopi_pool_lights_status
+              name: ETEINDRE
+              icon: mdi:spotlight
+              color: disabled
+              hide_state: true
+              vertical: true
+              tap_action:
+                action: none
+              icon_tap_action:
+                action: perform-action
+                perform_action: script.bopi_turn_lights_off_script
+                target: {}
+        title: Lumière
+# Fin du Tableau de Bord de BoPi

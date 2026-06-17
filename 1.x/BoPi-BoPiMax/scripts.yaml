@@ -1,0 +1,72 @@
+# Ces scripts sont a copier dans votre fichier scripts.yaml. Ils sont ceux utilisés par le tableau de Bord par défaut. 
+# Ces scripts ne sont pas nécessaires si vous voulez créer votre propre tableau de bord. 
+bopi_turn_pump_on_script:
+  alias: BoPi Turn Pump On Script
+  sequence:
+  - sequence:
+    - action: rest_command.bopi_pump_on
+      metadata: {}
+      data: {}
+    - action: homeassistant.update_entity
+      metadata: {}
+      data:
+        entity_id:
+        - sensor.bopi_pool_pump_override
+        - sensor.bopi_pool_pump_status
+        - sensor.bopi_pool_pump_timeleft
+  description: ''
+bopi_turn_pump_off_script:
+  alias: BoPi Turn Pump Off Script
+  sequence:
+  - sequence:
+    - action: rest_command.bopi_pump_off
+      data: {}
+    - action: homeassistant.update_entity
+      metadata: {}
+      data:
+        entity_id:
+        - sensor.bopi_pool_pump_override
+        - sensor.bopi_pool_pump_status
+        - sensor.bopi_pool_pump_timeleft
+  description: ''
+bopi_turn_pump_override_reset_script:
+  alias: BoPi Turn Pump override reset script
+  sequence:
+  - sequence:
+    - action: rest_command.bopi_pump_reset_override
+      data: {}
+    - action: homeassistant.update_entity
+      metadata: {}
+      data:
+        entity_id:
+        - sensor.bopi_pool_pump_override
+        - sensor.bopi_pool_pump_status
+        - sensor.bopi_pool_pump_timeleft
+  description: ''
+bopi_turn_lights_on_script:
+  alias: BoPi Turn Lights On Script
+  sequence:
+  - sequence:
+    - action: rest_command.bopi_lights_on
+      data: {}
+    - action: homeassistant.update_entity
+      metadata: {}
+      data:
+        entity_id:
+        - sensor.bopi_pool_lights_status
+        - sensor.bopi_pool_lights_timeleft
+  description: ''
+bopi_turn_lights_off_script:
+  alias: 'BoPi Turn Lights Off Script '
+  sequence:
+  - sequence:
+    - action: rest_command.bopi_lights_off
+      data: {}
+    - action: homeassistant.update_entity
+      metadata: {}
+      data:
+        entity_id:
+        - sensor.bopi_pool_lights_status
+        - sensor.bopi_pool_lights_timeleft
+  description: ''
+# Fin des scripts du tableau de bord de BoPi par défaut. 

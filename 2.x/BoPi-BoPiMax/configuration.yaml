@@ -1,0 +1,9 @@
+# Si vous utilisiez la v1.x, supprimer le contenu BoPi des fichiers configuration.yaml et scripts.yaml. Cette version va les remplacer.
+# Les id d'entités ont été conservés autant que possible pour ne pas casser les automations mais pensez à vérifier vos automatisations après le changement
+
+# Ajoutez cette section au fichier configuration.yaml. Si une section homeassistant est déjà présente, ajouter uniquement la ligne packages: dans la section existante
+homeassistant:
+  packages: !include_dir_named packages
+
+# Attention a bien ajouter le fichier bopi.yaml dans le dossier "packages". Ce dossier doit se trouver au même endroit que le fichier configuration.yaml. 
+# Si le dossier packages n'éxiste pas, créez le dans le même dossier que le fichier configuration.yaml.
